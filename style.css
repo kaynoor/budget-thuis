@@ -1,0 +1,27 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f2f4f7;
+  padding: 16px;
+}
+
+section {
+  background: white;
+  padding: 14px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  background: #1f2937;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
