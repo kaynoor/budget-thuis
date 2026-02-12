@@ -1,59 +1,76 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Budget Thuis</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Thuis</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
+<header>
 <h1>Huishoudbudget</h1>
+<button onclick="toggleDarkMode()">🌙</button>
+</header>
 
 <section>
-  <label>Maand:
-    <input type="month" id="monthPicker">
-  </label>
+<label>Maand:
+<input type="month" id="monthPicker">
+</label>
 </section>
 
 <section>
-  <h2>Inkomsten</h2>
-  <select id="incomePerson">
-    <option value="Persoon 1">Persoon 1</option>
-    <option value="Persoon 2">Persoon 2</option>
-  </select>
-  <input type="number" id="incomeAmount" placeholder="Bedrag">
-  <button onclick="addIncome()">Toevoegen</button>
-  <ul id="incomeList"></ul>
+<h2>Dashboard</h2>
+<canvas id="pieChart"></canvas>
+<canvas id="barChart"></canvas>
 </section>
 
 <section>
-  <h2>Uitgaven</h2>
-  <select id="expenseCategory">
-    <option>Hypotheek</option>
-    <option>Energie</option>
-    <option>Internet</option>
-    <option>Verzekering</option>
-    <option>Gemeentebelasting</option>
-    <option>Boodschappen</option>
-    <option>Transport</option>
-    <option>Abonnementen</option>
-    <option>Overig</option>
-  </select>
-  <input type="number" id="expenseAmount" placeholder="Bedrag">
-  <button onclick="addExpense()">Toevoegen</button>
-  <ul id="expenseList"></ul>
+<h2>Inkomsten</h2>
+<select id="incomePerson">
+<option>Persoon 1</option>
+<option>Persoon 2</option>
+</select>
+<input type="number" id="incomeAmount" placeholder="Bedrag">
+<button onclick="addIncome()">Toevoegen</button>
+<ul id="incomeList"></ul>
 </section>
 
 <section>
-  <h2>Overzicht</h2>
-  <p>Totaal inkomsten: € <span id="totalIncome">0</span></p>
-  <p>Totaal uitgaven: € <span id="totalExpense">0</span></p>
-  <p>Netto resultaat: € <span id="netResult">0</span></p>
-  <p>Verdeling Persoon 1: € <span id="share1">0</span></p>
-  <p>Verdeling Persoon 2: € <span id="share2">0</span></p>
-  <button onclick="exportCSV()">Export CSV</button>
+<h2>Uitgaven</h2>
+<select id="expenseCategory">
+<option>Hypotheek</option>
+<option>Energie</option>
+<option>Internet</option>
+<option>Verzekering</option>
+<option>Boodschappen</option>
+<option>Transport</option>
+<option>Abonnementen</option>
+<option>Overig</option>
+</select>
+<input type="number" id="expenseAmount" placeholder="Bedrag">
+<label><input type="checkbox" id="recurring"> Maandelijks herhalen</label>
+<button onclick="addExpense()">Toevoegen</button>
+<ul id="expenseList"></ul>
+</section>
+
+<section>
+<h2>Categorie Budgetten</h2>
+<input type="text" id="budgetCategory" placeholder="Categorie">
+<input type="number" id="budgetAmount" placeholder="Max budget">
+<button onclick="setBudget()">Instellen</button>
+<ul id="budgetList"></ul>
+</section>
+
+<section>
+<h2>Spaardoelen</h2>
+<input type="text" id="goalName" placeholder="Doel naam">
+<input type="number" id="goalTarget" placeholder="Doelbedrag">
+<input type="number" id="goalSaved" placeholder="Al gespaard">
+<button onclick="addGoal()">Toevoegen</button>
+<div id="goalList"></div>
 </section>
 
 <script src="app.js"></script>
